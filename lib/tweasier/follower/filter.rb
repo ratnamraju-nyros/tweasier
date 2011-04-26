@@ -32,6 +32,10 @@ module Tweasier
         known_local_follower_screen_names << self.account.unfollowed_people.collect { |p| p.screen_name }
         known_local_follower_screen_names << self.account.ignored_people.collect { |p| p.screen_name }
         known_local_follower_screen_names << self.account.suspended_people.collect { |p| p.screen_name }
+	
+	## Add this array to black list members
+        known_local_follower_screen_names << self.account.blacklists.collect { |p| p.screen_name }
+	
         known_local_follower_screen_names << self.account.username
         known_local_follower_screen_names << self.account.username.downcase
         
@@ -39,9 +43,18 @@ module Tweasier
         (known_twitter_follower_screen_names | known_local_follower_screen_names).uniq
       end
       
-      def get_new_follower_screen_names!
-        self.results.collect { |r| r.from_user }.uniq
+      def get_new_follower_screen_names!        
+	 self.results.collect { |r| filter_results_followers_greater_than_ten(self.account, r) }.uniq  
+     end
+     
+      def filter_results_followers_greater_than_ten(account, follower, limit=10)
+           person   = account.client.user(follower.from_user)
+	   if person.followers_count.to_i > limit
+            return follower.from_user 
+          end    
       end
+      
+      
       
       def filter_unique_screen_names_from_batch!
         self.new_follower_screen_names.reject! { |name| self.existing_follower_screen_names.include?(name) }

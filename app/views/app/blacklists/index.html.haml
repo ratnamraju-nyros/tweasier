@@ -1,0 +1,12 @@
+%h1 Listing Blacklist Items
+- if(!@blacklists.blank?)
+  - for blacklist_val in @blacklists 
+    %table 
+      %tr.search_condition[blacklist_val]{:class => cycle(:odd, :even)}
+        %td{:width => "90%"}= blacklist_val.screen_name      
+        %td{:width => "10%"}= link_to 'Delete', app_user_account_blacklist_path(@account,blacklist_val.id), :method => :delete , :confirm => 'Are you sure?'              
+- else
+  ="You have no blacklist"
+
+%p= link_to 'New Black list member', new_app_user_account_blacklist_path(@account) 	  
+  

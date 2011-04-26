@@ -9,6 +9,7 @@ ActionController::Routing::Routes.draw do |map|
         account.resources :favourites
         account.resources :friendships
         account.resources :mentions
+        account.resources :blacklists
         account.resources :statuses
         account.resources :retweets
         account.resources :spam_reports

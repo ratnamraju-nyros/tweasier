@@ -1,0 +1,16 @@
+.content
+  %h3 New Blacklist
+
+  - form_for(:blacklist, :url => app_user_account_blacklists_path(@account), :html => { :class => "chunky" }) do |form|
+    = form.error_messages  
+    = form.label "Screen Name"
+    %br
+    = form.text_field :screen_name
+    %br
+    %br	
+    = form.label "First Name"
+    %br
+    = form.text_field :first_name	
+    %p= form.submit "Create blacklist", :disable_with => "Creating blacklist...", :class => "submit_blue"
+
+= render :partial => "sidebar"

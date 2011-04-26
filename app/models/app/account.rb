@@ -10,8 +10,10 @@ module App
     has_many :unfollowed_people, :class_name => "App::Follower::UnfollowedPerson", :foreign_key => :account_id
     has_many :suspended_people, :class_name => "App::Follower::SuspendedPerson",   :foreign_key => :account_id
     has_many :ignored_people, :class_name => "App::Follower::IgnoredPerson",       :foreign_key => :account_id
-    
+       
     attr_accessible :atoken, :asecret, :user, :auto_follow, :auto_unfollow, :email_notifications, :bitly_token, :bitly_secret, :location
+    
+    has_many :blacklists , :class_name => "App::Blacklist", :foreign_key => :account_id
     
     delegate :request_token,
              :access_token,
