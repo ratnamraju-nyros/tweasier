@@ -1,4 +1,0 @@
-- form_tag app_user_account_friendships_path(@account), :class => "inline_follow_form", :id => "follow_form_for-#{person.id}" do
-  = hidden_field_tag 'user', person.screen_name
-  = link_to("follow", app_user_account_friendships_path(@account), :class => "inline_follow", :rel => person.id)
-  %span{:id => "follow_message_for-#{person.id}", :style => "display:none"} Sending follow request...

@@ -1,8 +1,0 @@
-/* IE only master */
-
-div#faq_index ul li a { _height: 20px; }
-
-div#errorExplanation h2 { _color: #000; _padding: 0; _margin: 0 0 20px 0; }
-div#errorExplanation p,
-div#errorExplanation ul { _padding: 0; _margin: 0; _font-weight: bold; }
-div#errorExplanation ul li { _padding: 2px 0; }

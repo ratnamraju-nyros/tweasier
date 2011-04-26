@@ -1,7 +1,0 @@
-%tr[followed_person]
-  %td
-    = link_to "#{followed_person.name.force_encoding('UTF-8')} - #{followed_person.screen_name.force_encoding('UTF-8')}", app_user_account_person_path(@account, followed_person.screen_name)
-    %small= "on #{followed_person.created_at.to_s(:precise)}"
-    %br
-    = "#{pluralize followed_person.friends_count, 'friend', 'friends'}, #{pluralize followed_person.followers_count, 'follower', 'followers'}, #{pluralize followed_person.statuses_count, 'tweet', 'tweets'}"
-  %td= followed_person.search ? link_to(followed_person.search.title, app_user_account_search_path(@account, followed_person.search)) : "none"

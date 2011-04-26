@@ -1,2 +1,0 @@
-module App::BlacklistsHelper
-end

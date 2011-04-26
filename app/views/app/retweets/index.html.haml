@@ -1,7 +1,0 @@
-.content
-  %p
-    %strong Show retweets
-    = select_tag :retweets_selector, options_for_select((%w{ by_me to_me of_me }.collect{ |i| [i.humanize.downcase, i] } << ["-- select retweets to show --", ""]).reverse, params[:filter])
-    
-= render_list(:statuses, @retweets)
-- render_tip :retweets

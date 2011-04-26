@@ -1,7 +1,0 @@
-%tr
-  %td= link_to account.username, app_user_account_path(account)
-  %td= link_to account.email_notifications, edit_app_user_account_path(account)
-  %td
-    = link_to((account.auto_follow? ? "On" : "Off"), edit_app_user_account_path(account))
-    \/
-    = link_to((account.auto_unfollow? ? "On" : "Off"), edit_app_user_account_path(account))

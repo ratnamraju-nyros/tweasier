@@ -1,8 +1,0 @@
-.content
-  %h3 New saved search
-
-  - form_for(:search, :url => app_user_account_searches_path(@account), :html => { :class => "chunky" }) do |form|
-    = render :partial => "form", :locals => { :form => form }
-    %p= form.submit "Create search", :disable_with => "Creating search...", :class => "submit_blue"
-
-= render :partial => "sidebar"

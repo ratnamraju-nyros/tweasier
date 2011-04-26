@@ -1,7 +1,0 @@
-%h3
-  = @status.user.blank? ? @status.sender.screen_name : @status.user.screen_name
-  &rarr;
-  = truncate(@status.text, :length => 30)
-  
-%ul#statuses
-  = render :partial => "status", :object => @status

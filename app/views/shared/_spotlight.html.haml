@@ -1,9 +1,0 @@
-#spotlight
-  .inner
-    .right
-      %h2 Making Twitter Tweasier!
-      %p= Configuration.app.tagline
-
-      %p
-        = link_to content_tag(:span, "Get an account"), (signed_in? ? app_user_path : sign_up_path), :class => "sign_up"
-        = link_to content_tag(:span, "Take the tour"), features_path, :class => "tour"

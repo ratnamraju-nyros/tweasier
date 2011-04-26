@@ -1,7 +1,0 @@
-
-Suggestions:
-  macournoyer, foca
-
-Patches:
-  TwP, gzuki, spraints, francois
-

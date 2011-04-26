@@ -1,4 +1,0 @@
-- form_tag app_user_account_spam_reports_path(@account), :id => "spam_report_form" do
-  = hidden_field_tag 'user', person.id
-  = link_to("report spam", app_user_account_spam_reports_path(@account), :class => "report_spam")
-  %span{:id => "spam_report_message", :style => "display:none"} Reporting spam...

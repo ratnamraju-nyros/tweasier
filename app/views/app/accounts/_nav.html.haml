@@ -1,8 +1,0 @@
-%ul#account_nav
-  %li= loading_link_to "Friends Timeline", app_user_account_path(account), :class => "#{"selected" if (@controller.controller_name == "accounts" and @controller.action_name == "show" and !request.request_uri.include?("statistics"))}"
-  %li= loading_link_to "Retweets", app_user_account_retweets_path(account), :class => selected_if?(nil, "retweets")
-  %li= loading_link_to "Mentions", app_user_account_mentions_path(account), :class => selected_if?(nil, "mentions")
-  %li= loading_link_to "Direct Messages", app_user_account_direct_messages_path(account), :class => selected_if?(nil, "direct_messages")
-  %li= loading_link_to "Favourites", app_user_account_favourites_path(account), :class => selected_if?(nil, "favourites")
-  %li= link_to "Searches", app_user_account_searches_path(account), :class => "#{"selected" if (@controller.controller_name == "searches" and !request.request_uri.include?("statistics"))}"
-  %li= link_to "Statistics", app_user_account_statistics_home_path(account), :class => "#{"selected" if request.request_uri.include?("statistics")}"

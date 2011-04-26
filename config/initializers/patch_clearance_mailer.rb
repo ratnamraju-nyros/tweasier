@@ -1,1 +1,0 @@
-ClearanceMailer.class_eval { layout "mailer" }

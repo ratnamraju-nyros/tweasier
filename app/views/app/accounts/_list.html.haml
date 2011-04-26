@@ -1,9 +1,0 @@
-- if accounts.empty?
-  %p= link_to "Click here to add your first account!", new_app_user_account_path
-- else
-  %table.fancy
-    %tr
-      %th{:width => "40%"} Account
-      %th{:width => "30%"} Email notifications
-      %th{:width => "30%"} Bulk follower/unfollower
-    = render :partial => "app/accounts/account", :collection => @user.accounts
