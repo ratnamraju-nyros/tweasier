@@ -1,0 +1,5 @@
+%tr[link]
+  %td= @account.link_shortening_available? ? link_to(link.short_url, app_user_account_statistics_link_path(@account, link)) : link.short_url
+  %td= link_to link.long_url, link.long_url
+  %td.center_align= link.cached_user_clickcount
+  %td.center_align= link.cached_clickcount

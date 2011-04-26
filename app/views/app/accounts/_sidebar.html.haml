@@ -1,0 +1,14 @@
+- sidebar do
+  %p
+    Twitter enforces a limit of
+    = Configuration.twitter.request_limit
+    API requests per hour. You have used
+    %strong
+      = Configuration.twitter.request_limit - @account.limit_information.remaining_hits
+      of
+      = "#{@account.limit_information.remaining_hits}."
+    This limit will be reset at
+    %strong= "#{Time.parse(@account.limit_information.reset_time).strftime("%H:%M%p")}."
+  %ul
+    %li= link_to "View my account",app_user_account_person_path(@account, @account.username)
+    %li= link_to "Edit my account settings", edit_app_user_account_path(@account)

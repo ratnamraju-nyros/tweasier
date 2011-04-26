@@ -1,0 +1,147 @@
+GIT
+  remote: git://github.com/joshnesbitt/rspreedly.git
+  revision: d92490538c25cf52db3bf22b65bc8890150fada5
+  specs:
+    rspreedly (0.1.11)
+      httparty (>= 0.5.0)
+
+GEM
+  remote: http://gems.rubyforge.org/
+  remote: http://gems.github.com/
+  remote: http://gemcutter.org/
+  specs:
+    aaronh-chronic (0.3.9)
+    actionmailer (2.3.8)
+      actionpack (= 2.3.8)
+    actionpack (2.3.8)
+      activesupport (= 2.3.8)
+      rack (~> 1.1.0)
+    activerecord (2.3.8)
+      activesupport (= 2.3.8)
+    activeresource (2.3.8)
+      activesupport (= 2.3.8)
+    activesupport (2.3.8)
+    babosa (0.2.0)
+    bitly (0.5.3)
+      crack (>= 0.1.4)
+      httparty (>= 0.5.2)
+    builder (2.1.2)
+    cancan (1.3.4)
+    capistrano (2.5.19)
+      highline
+      net-scp (>= 1.0.0)
+      net-sftp (>= 2.0.0)
+      net-ssh (>= 2.0.14)
+      net-ssh-gateway (>= 1.0.0)
+    chronic (0.3.0)
+    clearance (0.8.8)
+    configr (1.0.1)
+    crack (0.1.8)
+    cucumber (0.9.2)
+      builder (~> 2.1.2)
+      diff-lcs (~> 1.1.2)
+      gherkin (~> 2.2.5)
+      json (~> 1.4.6)
+      term-ansicolor (~> 1.0.5)
+    cucumber-rails (0.3.2)
+      cucumber (>= 0.8.0)
+    diff-lcs (1.1.2)
+    faker (0.3.1)
+    fakeweb (1.3.0)
+    friendly_id (3.1.7)
+      babosa (~> 0.2.0)
+    gherkin (2.2.9)
+      json (~> 1.4.6)
+      term-ansicolor (~> 1.0.5)
+    google-geo (2.3)
+    haml (3.0.22)
+    hashie (0.4.0)
+    highline (1.6.1)
+    hirb (0.3.6)
+    httparty (0.6.1)
+      crack (= 0.1.8)
+    json (1.4.6)
+    mime-types (1.16)
+    multi_json (0.0.4)
+    mysql (2.8.1)
+    net-scp (1.0.4)
+      net-ssh (>= 1.99.1)
+    net-sftp (2.0.5)
+      net-ssh (>= 2.0.9)
+    net-ssh (2.0.23)
+    net-ssh-gateway (1.0.1)
+      net-ssh (>= 1.99.1)
+    notahat-machinist (1.0.3)
+    oauth (0.4.3)
+    pdfkit (0.4.6)
+    pickle (0.3.4)
+    rack (1.1.0)
+    rails (2.3.8)
+      actionmailer (= 2.3.8)
+      actionpack (= 2.3.8)
+      activerecord (= 2.3.8)
+      activeresource (= 2.3.8)
+      activesupport (= 2.3.8)
+      rake (>= 0.8.3)
+    rake (0.8.7)
+    redis (2.0.11)
+    redis-namespace (0.8.0)
+      redis (< 3.0.0)
+    resque (1.10.0)
+      json (~> 1.4.6)
+      redis-namespace (~> 0.8.0)
+      sinatra (>= 0.9.2)
+      vegas (~> 0.1.2)
+    rest-client (1.6.1)
+      mime-types (>= 1.16)
+    rspec (1.1.12)
+    rspec-rails (1.1.12)
+      rspec (= 1.1.12)
+    sinatra (1.1.0)
+      rack (~> 1.1)
+      tilt (~> 1.1)
+    term-ansicolor (1.0.5)
+    test-unit (2.1.1)
+    tilt (1.1)
+    twitter (0.9.12)
+      hashie (~> 0.4.0)
+      httparty (~> 0.6.1)
+      multi_json (~> 0.0.4)
+      oauth (~> 0.4.3)
+    vegas (0.1.8)
+      rack (>= 1.0.0)
+    whenever (0.6.1)
+      aaronh-chronic (>= 0.3.9)
+      activesupport (>= 2.3.4)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  bitly
+  cancan (= 1.3.4)
+  capistrano
+  chronic
+  clearance
+  configr
+  cucumber-rails
+  faker
+  fakeweb
+  friendly_id
+  google-geo
+  haml
+  hashie (>= 0.2.1)
+  hirb
+  mysql
+  notahat-machinist
+  pdfkit
+  pickle
+  rails (= 2.3.8)
+  resque
+  rest-client
+  rspec (= 1.1.12)
+  rspec-rails
+  rspreedly!
+  test-unit
+  twitter (>= 0.9.8)
+  whenever

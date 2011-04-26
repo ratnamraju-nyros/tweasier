@@ -1,0 +1,18 @@
+%h3 Confirm password reset
+
+%p Please enter your new password.
+
+- form_for(:user, :url => user_password_path(@user, :token => @user.token), :html => { :method => :put, :class => "chunky" }) do |form|
+  = error_messages_for :user
+  
+  %p
+    = form.label :password, "New password"
+    %br
+    = form.password_field :password
+  
+  %p
+    = form.label :password_confirmation, "Confirm new password"
+    %br
+    = form.password_field :password_confirmation
+    
+  %p= form.submit "Reset password", :disable_with => "Please wait...", :class => "submit_blue"

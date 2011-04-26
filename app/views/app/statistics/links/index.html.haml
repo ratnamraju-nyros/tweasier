@@ -1,0 +1,16 @@
+.content
+  %h3= "Links statistics (via #{link_to "Bit.ly", Configuration.bitly.home_url})"
+
+  %p Here are all the links you have shortened and tweeted using Bit.ly. Please be aware that in order to respect the fair usage policy of the Bit.ly API we do not refresh the click count on every page request, we only show the last known count. To get the exact count please click on a link to view its statistics.
+
+  - unless @account.link_shortening_available?
+    %p
+      It seems like you haven't set
+      = Configuration.app.title
+      up to use Bit.ly yet.
+      = link_to "Click here", edit_app_user_account_path(@account) + "#bitly_preferences"
+      to change this.
+
+  = render_list(:links, @links, "app/statistics")
+
+= render :partial => "app/statistics/shared/sidebar"

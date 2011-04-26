@@ -1,0 +1,6 @@
+h2. Tweasier has the following dependencies:
+
+* Redis - running on a port which is globaly configured across the Sinatra app/Rails app.
+* Resque - to perform background jobs (vendored).
+* Whenever - to update the crontab schedule.
+* Cron - check is running for whenever.

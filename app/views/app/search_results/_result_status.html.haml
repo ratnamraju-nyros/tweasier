@@ -1,0 +1,24 @@
+%li.status{:id => "status-#{result_status.id}"}
+  %ul.actions
+    %li= render :partial => "app/retweets/form", :locals => { :status => result_status }
+    %li= link_to content_tag(:span, "reply"), '#', :class => 'reply', :rel => "#{h(result_status.from_user)}:#{h(result_status.from_user_id)}", :title => "Reply to #{h result_status.from_name}"
+    %li= link_to_twitter_status(content_tag(:span, "permalink"), result_status.id, result_status.from_user, :class => "permalink")
+    
+  = link_to image_tag(result_status.profile_image_url), app_user_account_person_path(@account, result_status.from_user), :class => 'profile_image'
+  
+  %ul.user_actions
+    %li= link_to h(result_status.from_user), app_user_account_person_path(@account, result_status.from_user), :class => "screen_name"
+    %li= link_to content_tag(:span, "direct message"), '#', :class => 'dm', :rel => "#{h(result_status.from_user)}:#{h(result_status.from_user_id)}", :title => "Direct Message #{h result_status.from_user}"
+  
+  %br
+  %br
+  
+  %p.text= format_status(result_status)
+  
+  .datetime
+    - if result_status.geo
+      = link_to(address_from_geolocation(result_status.geo), app_user_account_map_path(@account, "view", :lat => result_status.geo.coordinates[0], :long => result_status.geo.coordinates[1]), :rel => 'facybox') if result_status.geo.coordinates
+      on
+    - else
+      On
+    = link_to(pretty_datetime(result_status.created_at), app_user_account_status_path(@account, result_status.id))

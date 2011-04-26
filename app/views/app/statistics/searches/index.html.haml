@@ -1,0 +1,73 @@
+.content
+  %h3 Search statistics
+
+  %p
+    Here is a breakdown of the effectiveness of your saved searches. Click on a search title to go to that search. You currently have
+    = pluralize(@searches.size, "search")
+    and the bulk follower tool is
+    %strong= @account.auto_follow? ? "active." : "inactive."
+    = link_to "Click here", edit_app_user_account_path(@account)
+    to change this.
+
+  - if @followed > 0 and @unfollowed > 0
+    %h4 Followed users vs unfollowed users
+    = flash_chart app_user_account_statistics_searches_path(@account, :format => :chart, :chart_id => "follower")
+
+  %p.statistic
+    %strong= pluralize((@total_found), "person")
+    \...found
+
+  %p.statistic
+    %strong
+      = pluralize((@followed), "person")
+      &#47;
+      = number_to_percentage(@followed_percentage, :precision => 2)
+    \...followed
+
+  %p.statistic
+    %strong
+      = pluralize((@unfollowed), "person")
+      &#47;
+      = number_to_percentage(@unfollowed_percentage, :precision => 2)
+    \...unfollowed
+
+  - unless @searches.empty?
+    %br.clear
+    - if @followed > 0
+      %h4 Search effectiveness by followed users
+      = flash_chart app_user_account_statistics_searches_path(@account, :format => :chart, :chart_id => "search_followed"), :height => 600
+      %br.clear
+    - if @unfollowed > 0
+      %br.clear
+      %h4 Search effectiveness by unfollowed users
+      = flash_chart app_user_account_statistics_searches_path(@account, :format => :chart, :chart_id => "search_unfollowed"), :height => 600
+      %br.clear
+      %br.clear
+    
+    %h4 Search effectiveness detail
+    %table.fancy
+      - @searches.each do |search|
+        %tr
+          %th{:colspan => 2}= link_to(search.title, app_user_account_search_path(@account, search))
+        %tr
+          %td.highlight Followed:
+          %td
+            = pluralize(search.followed_people.count, "person", "people")
+            &#47;
+            = number_to_percentage(search.followed_people.count.as_percentage_of(@total_search_people), :precision => 2)
+        %tr
+          %td.highlight Unfollowed:
+          %td
+            = pluralize(search.unfollowed_people.count, "person", "people")
+            &#47;
+            = number_to_percentage(search.unfollowed_people.count.as_percentage_of(@total_search_people), :precision => 2)
+      %tr
+        %th{:colspan => 2} Unaccountable (manually added or search removed)      
+      %tr
+        %td.highlight Followed
+        %td= pluralize(@unaccountable_followed.size, "person", "people")
+      %tr
+        %td.highlight Unfollowed
+        %td= pluralize(@unaccountable_unfollowed.size, "person", "people")
+
+= render :partial => "app/statistics/shared/sidebar"

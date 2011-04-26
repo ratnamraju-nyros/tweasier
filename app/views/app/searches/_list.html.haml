@@ -1,0 +1,7 @@
+- if searches.empty?
+  %p
+    You have no saved searches at the moment.
+    = "#{link_to "Add one", new_app_user_account_search_path(@account)}."
+- else
+  %table#searches
+    = render :partial => "search", :collection => searches

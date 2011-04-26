@@ -1,0 +1,7 @@
+- if statuses.blank?
+  .content
+    %p No statuses found.
+- else
+  %ul#statuses
+    = render :partial => "app/statuses/status", :collection => statuses
+    = render :partial => "app/shared/pagination"

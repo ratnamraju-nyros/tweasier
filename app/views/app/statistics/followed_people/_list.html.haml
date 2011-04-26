@@ -1,0 +1,11 @@
+- if followed_people.empty?
+  %p
+    You have no followed people within the last 2 weeks.
+- else
+  %table#links.fancy
+    %tr
+      %th{:width => "60%"} Person
+      %th{:width => "20%"} Related search
+    = render :partial => "followed_person", :collection => followed_people
+    
+  %p Numbers given may have changed since this data was recorded.

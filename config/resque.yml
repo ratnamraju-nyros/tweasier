@@ -1,0 +1,10 @@
+# Resque configuration
+
+auth:
+  username: tweasier
+  password: cdzvc4
+
+test: localhost:6379
+development: localhost:6382
+staging:     localhost:6379
+production_private:  localhost:9878

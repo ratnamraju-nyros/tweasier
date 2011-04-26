@@ -1,0 +1,11 @@
+%p.pagination
+  - if params[:filter]
+    - if params[:page] && (params[:page].to_i - 1) > 0
+      = link_to '&larr; Newer', {:page => (params[:page].to_i - 1), :filter => params[:filter]}, :class => 'newer'
+      = "|"
+    = link_to 'Older &rarr;', {:page => (params[:page].to_i + 1), :filter => params[:filter]}, :class => 'older'
+  - else
+    - if params[:page] && (params[:page].to_i - 1) > 0
+      = link_to '&larr; Newer', {:page => (params[:page].to_i - 1)}, :class => 'newer'
+      = "|"
+    = link_to 'Older &rarr;', {:page => (params[:page].to_i + 1)}, :class => 'older'

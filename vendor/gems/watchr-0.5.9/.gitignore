@@ -1,0 +1,6 @@
+doc/
+pkg/
+bk/
+.wiki
+.yardoc
+*.gem

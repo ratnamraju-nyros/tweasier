@@ -1,0 +1,15 @@
+- form_for(:condition, :url => app_user_account_search_conditions_path(account, search)) do |form|
+  = error_messages_for :condition
+
+  %table#search_condition_form
+    %tr.even
+      %td{:width => "20%"}
+        = form.select :search_condition_type_id, @types.collect { |c| [c.label, c.id] }
+      %td{:width => "70%"}
+        #condition_value_wrapper= form.text_field :value
+      %td{:width => "10%"}= form.submit "Add", :class => "submit_blue-small"
+  %p.hint Note: If the search is a "contains" or "does not contain" clause you can use the "AND" and "OR" keywords to alter the scope of your search. Adding more conditions will narrow the scope of your search. For example creating a contains parameter you could put &quot;bill OR bob&quot;.
+
+- content_for :head do
+  :javascript
+    window._valid_empty_conditions = [#{@types.reject { |t| t.value_required? }.collect { |t| "'#{t.id}'" }.join(",")}];

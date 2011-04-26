@@ -1,0 +1,112 @@
+--- !ruby/object:Gem::Specification 
+name: watchr
+version: !ruby/object:Gem::Version 
+  version: 0.5.9
+platform: ruby
+authors: 
+- mynyml
+autorequire: 
+bindir: bin
+cert_chain: []
+
+date: 2009-11-25 00:00:00 +00:00
+default_executable: watchr
+dependencies: 
+- !ruby/object:Gem::Dependency 
+  name: minitest
+  type: :development
+  version_requirement: 
+  version_requirements: !ruby/object:Gem::Requirement 
+    requirements: 
+    - - ">="
+      - !ruby/object:Gem::Version 
+        version: "0"
+    version: 
+- !ruby/object:Gem::Dependency 
+  name: mocha
+  type: :development
+  version_requirement: 
+  version_requirements: !ruby/object:Gem::Requirement 
+    requirements: 
+    - - ">="
+      - !ruby/object:Gem::Version 
+        version: "0"
+    version: 
+- !ruby/object:Gem::Dependency 
+  name: every
+  type: :development
+  version_requirement: 
+  version_requirements: !ruby/object:Gem::Requirement 
+    requirements: 
+    - - ">="
+      - !ruby/object:Gem::Version 
+        version: "0"
+    version: 
+description: Modern continious testing (flexible alternative to autotest).
+email: mynyml@gmail.com
+executables: 
+- watchr
+extensions: []
+
+extra_rdoc_files: 
+- README.rdoc
+files: 
+- .gitignore
+- History.txt
+- LICENSE
+- Manifest
+- README.rdoc
+- Rakefile
+- TODO.txt
+- bin/watchr
+- contributions.txt
+- docs.watchr
+- gem.watchr
+- lib/watchr.rb
+- lib/watchr/controller.rb
+- lib/watchr/event_handlers/base.rb
+- lib/watchr/event_handlers/portable.rb
+- lib/watchr/event_handlers/unix.rb
+- lib/watchr/script.rb
+- specs.watchr
+- test/README
+- test/event_handlers/test_base.rb
+- test/event_handlers/test_portable.rb
+- test/event_handlers/test_unix.rb
+- test/test_controller.rb
+- test/test_helper.rb
+- test/test_script.rb
+- test/test_watchr.rb
+- watchr.gemspec
+has_rdoc: true
+homepage: http://mynyml.com/ruby/flexible-continuous-testing
+licenses: []
+
+post_install_message: 
+rdoc_options: 
+- --main
+- README.rdoc
+require_paths: 
+- lib
+required_ruby_version: !ruby/object:Gem::Requirement 
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      version: "0"
+  version: 
+required_rubygems_version: !ruby/object:Gem::Requirement 
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      version: "0"
+  version: 
+requirements: []
+
+rubyforge_project: watchr
+rubygems_version: 1.3.5
+signing_key: 
+specification_version: 3
+summary: Modern continious testing (flexible alternative to autotest)
+test_files: []
+
+

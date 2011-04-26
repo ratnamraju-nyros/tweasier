@@ -1,0 +1,86 @@
+%h2= "Hi there #{@local_account.username}"
+
+%p
+  Welcome to the Tweasier weekly digest. Here are your stats for
+  = "#{h(@twitter_account.name)} (#{h(@twitter_account.screen_name)}):"
+
+%br
+
+%p
+  %strong= @twitter_account.friends_count
+  \...friends
+%p
+  %strong= @twitter_account.followers_count
+  \...followers
+%p
+  %strong= @twitter_account.statuses_count
+  \...status updates
+%p
+  %strong= @twitter_account.favourites_count
+  \...favourites
+- unless @twitter_account.location.blank?
+  %p.statistic
+    %strong= h @twitter_account.location
+    \...from
+%p
+  %strong= time_ago_in_words(@twitter_account.created_at).capitalize
+  \...since registration
+
+- unless @searches.empty?
+  %br
+  %h3 Search stats
+  %table{:style => "text-align: left; width: 400px; margin: 0px; border-collapse: collapse; border: 1px #ccc solid;"}
+    %tr
+      %th{:style => "border-collapse: collapse; border: 1px #ccc solid; padding: 8px; font-weight: bold;"} Search Term
+      %th{:style => "border-collapse: collapse; border: 1px #ccc solid; padding: 8px; font-weight: bold;"} Count
+    - @searches.each do |search|
+      %tr{:style => "border-collapse: collapse; border: 1px #ccc solid;"}
+        %th{:style => "font-weight: bold; border-collapse: collapse; border: 1px #ccc solid; padding: 8px;"}= search ? link_to(search.title, app_user_account_search_url(@local_account, search)): "No search defined (manual)"
+        %td{:style => "border-collapse: collapse; border: 1px #ccc solid; padding: 8px;"}= pluralize(search.followed_people.count, "person", "people")
+
+- unless @grouped_followed_people.empty?
+  %br
+  %h3 Follower stats
+  %h4
+    Daily breakdown
+    %small (limited to the last 2000)
+  
+  %table{:style => "text-align: left; width: 400px; margin: 0px; border-collapse: collapse; border: 1px #ccc solid;"}
+    %tr
+      %th{:style => "border-collapse: collapse; border: 1px #ccc solid; padding: 8px; font-weight: bold;"} Day
+      %th{:style => "border-collapse: collapse; border: 1px #ccc solid; padding: 8px; font-weight: bold;"} Count
+    - @grouped_followed_people.each do |day, people|
+      %tr
+        %th{:style => "border-collapse: collapse; border: 1px #ccc solid; padding: 8px; font-weight: bold;"}= day
+        %td{:style => "border-collapse: collapse; border: 1px #ccc solid; padding: 8px;"}= pluralize(people.size, "person", "people")
+  
+  %p
+    = link_to "Click here", app_user_account_statistics_followed_people_url(@local_account)
+    to view all followed people.
+
+- unless @grouped_unfollowed_people.empty?
+  %br
+  %h3 Unfollower stats
+  %h4
+    Daily breakdown
+    %small (limited to the last 1000)
+  
+  %table{:style => "text-align: left; width: 400px; margin: 0px; border-collapse: collapse; border: 1px #ccc solid;"}
+    %tr
+      %th{:style => "border-collapse: collapse; border: 1px #ccc solid; padding: 8px; font-weight: bold;"} Day
+      %th{:style => "border-collapse: collapse; border: 1px #ccc solid; padding: 8px; font-weight: bold;"} Count
+    - @grouped_unfollowed_people.each do |day, people|
+      %tr
+        %th{:style => "border-collapse: collapse; border: 1px #ccc solid; padding: 8px; font-weight: bold;"}= day
+        %td{:style => "border-collapse: collapse; border: 1px #ccc solid; padding: 8px;"}= pluralize(people.size, "person", "people")
+  
+  %p
+    = link_to "Click here", app_user_account_statistics_unfollowed_people_url(@local_account)
+    to view all unfollowed people.
+
+%br
+
+%p
+  If you wish to change the frequency of these notifications you can do so from within the
+  = link_to "account preferences", edit_app_user_account_url(@local_account)
+  section of your account.

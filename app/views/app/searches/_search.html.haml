@@ -1,0 +1,4 @@
+%tr.search[search]{:class => cycle(:odd, :even)}
+  %td{:width => "80%"}= link_to search.title, app_user_account_search_path(@account, search)
+  %td.grey{:width => "20%"}= pluralize(search.conditions.size, "condition")
+  

@@ -1,0 +1,78 @@
+= shared "callout_two"
+
+#faq
+  %p.attention Click on a question header to reveal the answer.
+  
+  %h4 Registration
+  
+  %h5 Why would i use Tweasier?
+  %div
+    %p Here are just some of the problems we have come across from Twitter users:
+    %ul.fancy
+      %li It takes far too long to find the right people to follow
+      %li It takes me too much time to build my follower number base up
+      %li I am following too many people but I don't know how to sort out the good from the bad
+      %li I get followed by lots of spam accounts but I still have to trawl through them to find the good people worth following
+      %li I would like to know how successful my tweets are but don't know how to track them easily
+      %li Most people aren't local to me so I don't think they are that relevant. I want local followers.
+    %p
+      Tweasier solves all of these problems and so much more. For more information on what Tweasier has to offer, please
+      = link_to "take a look at the features", features_path
+      page.
+  
+  %h5 How can I help make Tweasier even better?
+  %div
+    %p
+      We want our service to be perfect so if you have some feedback which you think will help please do share it with us. You can do this by using the feedback widget when signed in or by
+      = "#{mail_to Configuration.email.info, "sending us an email", :encode => :hex}."
+  
+  %h4 Twitter client
+  
+  / Todo
+  
+  %h4 Follower tool
+  
+  / Todo
+
+  %h5 My followers count seems to be slightly less than that quoted by the search and follower tools. Why is this?
+  %div Sometimes when you make a request to follow a user the request will not be immediately approved. This could be because the user has protected their profile through the privacy settings available to every Twitter user. Another reason could be that latency between Tweasier and the Twitter API means that statistics are sometimes out of sync.
+  
+  %h4 Unfollower tool
+
+  / Todo
+  
+  %h4 Spam reporting
+  
+  %h5 How do i report spam from within Tweasier?
+  %div
+    Reporting
+    =link_to "spam", "http://en.wikipedia.org/wiki/Spam_(electronic)"
+    from within Tweasier is simple. When you discover a user who you feel may be abusing Twitter you can report them on their user profile page. Simply click the "report spam" link and we'll pass that message onto Twitter.
+  
+  %h4 Twitter
+  
+  / Todo
+  
+  %h5 Will using Tweasier get me in trouble with Twitter?
+  %div
+    Not at all! At Tweasier we make sure we do everything above board. We work very hard to create a tool that works
+    %strong with
+    Twitter not against it. This includes reporting spam from within the Twitter client, effectively reducing the amount of requests we make to Twitter and providing
+    a client that helps grow networks and friendships in a
+    %strong positive
+    way.
+  
+  %h5 I keep seeing "rate limit exceeded" warnings, what does this mean?
+  %div
+    If you are a
+    %strong very
+    heavy Twitter user you may see this from time to time. An average user is granted
+    = Configuration.twitter.request_limit
+    API requests per hour. This means that if you are using a twitter client (such as Tweasier) rather heavily you may exceed this limit. The limit includes most calls
+    made to Twitter including the latest timeline feed, mentions, direct messages and viewing a persons profile. At Tweasier we take measures to try and reduce the amount
+    of requests you make to Twitter in the format of caching. We remember what pages you have clicked on and only get the newest content when it is available. This does not
+    affect your privacy.
+  
+  %h4 Billing
+  
+  / Todo

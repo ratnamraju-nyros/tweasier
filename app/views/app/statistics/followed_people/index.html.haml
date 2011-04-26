@@ -1,0 +1,36 @@
+.content
+  %h3 Followed people (via Tweasier)
+
+  %p Here are all the people you have followed recently. We limit the number of users shown to those found in the last 2 weeks. The saved search that yielded the follower can be seen by clicking the "related search" link next to each person.
+  %p
+    You currently have
+    = pluralize(@account.searches.size, "search")
+    and the bulk follower tool is
+    %strong= @account.auto_follow? ? "active." : "inactive."
+    = link_to "Click here", edit_app_user_account_path(@account)
+    to change this.
+  
+  %p.statistic
+    %strong= pluralize((@people_count), "person")
+    \...followed
+    
+  - unless @grouped_people.empty?
+    %h4 Followed people by day
+    = flash_chart app_user_account_statistics_followed_people_path(@account, :format => :chart), :height => 500
+    %br.clear
+    
+    %table.fancy
+      %tr
+        %th Day
+        %th Followed count
+      - @grouped_people.each do |day, people|
+        %tr
+          %td.highlight= day
+          %td= pluralize(people.size, "person", "people")
+
+  %h4 User detail
+  = render_list(:followed_people, @people.slice(0,200), "app/statistics")
+  
+  %p.hint Please note: if you have the bulk unfollower enabled the numbers represented here will be lower than normal. That is because Tweasier only shows you followers who have reciprocated the follow back.
+
+= render :partial => "app/statistics/shared/sidebar"

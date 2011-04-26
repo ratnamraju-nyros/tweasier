@@ -1,0 +1,4 @@
+- for name in [:notice, :warning, :message, :error, :failure, :success]
+  - if flash[name]
+    %div{:class => "flash #{name}"}
+      = h(flash[name])

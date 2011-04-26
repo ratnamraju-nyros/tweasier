@@ -1,0 +1,11 @@
+%h3 Reset your password
+
+%p To reset your password simply enter your email address and we will send you further instructions.
+
+- form_for :password, :url => passwords_path, :html => { :class => "chunky" } do |form|
+  
+  %p
+    = form.label :email, "Email address"
+    %br
+    = form.text_field :email
+  %p= form.submit "Reset password", :disable_with => "Please wait...", :class => "submit_blue"

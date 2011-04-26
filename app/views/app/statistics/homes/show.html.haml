@@ -1,0 +1,13 @@
+.content
+  %h3 Tweasier statistics
+
+  %p Welcome to the Tweasier statistics section. From here you can review statistics for your account, searches, links and more surrounding your Twitter account.
+
+  %ul#statistics
+    %li= link_to "Account", app_user_account_statistics_account_path(@account)
+    %li= link_to "Search", app_user_account_statistics_searches_path(@account)
+    %li= link_to "Followed People", app_user_account_statistics_followed_people_path(@account)
+    %li= link_to "Unfollowed People", app_user_account_statistics_unfollowed_people_path(@account)
+    %li= link_to "Links", app_user_account_statistics_links_path(@account)
+
+= render :partial => "app/statistics/shared/sidebar"

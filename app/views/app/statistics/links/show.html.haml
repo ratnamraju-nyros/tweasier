@@ -1,0 +1,34 @@
+%h3= "Links (via #{link_to "Bit.ly", Configuration.bitly.home_url}) &rarr; #{@link.unique_hash}"
+
+%p
+  %strong Bit.ly URL:
+  = link_to @link.short_url, @link.short_url
+
+%p
+  %strong Normal URL:
+  = link_to @link.long_url, @link.long_url
+
+%p.statistic
+  %strong= @link.cached_clickcount
+  Total click throughs
+
+%p.statistic
+  %strong= @link.cached_user_clickcount
+  Unique user click throughs
+
+%h4= "Referrers (#{@link.referrers.size})"
+
+- if @link.referrers.present?
+  %table.fancy
+    - @link.referrers.each_pair do |domain, stats|
+      %tr
+        %th{:colspan => 2}= domain.blank? ? "Direct Referral" : domain
+      - stats.each_pair do |path, hits|
+        %tr
+          %td{:width => "80%"}= path.blank? ? "/" : path
+          %td{:width => "20%"}= pluralize(hits, "hit")
+
+- else
+  %p No referrers found.
+
+= render :partial => "app/statistics/shared/sidebar"

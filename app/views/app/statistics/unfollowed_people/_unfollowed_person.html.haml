@@ -1,0 +1,4 @@
+%tr[unfollowed_person]
+  %td
+    = link_to "#{unfollowed_person.name.force_encoding('UTF-8')} - #{unfollowed_person.screen_name.force_encoding('UTF-8')}", app_user_account_person_path(@account, unfollowed_person.screen_name)
+    %small= "on #{unfollowed_person.updated_at.to_s(:precise)}"

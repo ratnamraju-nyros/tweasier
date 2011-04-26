@@ -1,0 +1,8 @@
+%tr.search_condition[search_condition]{:class => cycle(:odd, :even)}
+  %td{:width => "90%"}
+    - if search_condition.value_required?
+      = search_condition.type.label
+      %em= "'#{search_condition.value}'"
+    - else
+      = search_condition.type.label
+  %td{:width => "10%"}= link_to "remove", app_user_account_search_condition_path(@account, search_condition.search, search_condition), :method => :delete, :confirm => "Are you sure you want to remove this condition?"

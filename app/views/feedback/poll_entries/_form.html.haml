@@ -1,0 +1,11 @@
+#poll_form
+  = simple_format(auto_link("&quot;" + h(poll.title) + "&quot;"))
+
+  %ul
+    - form_for :feedback_poll_entry, :url => feedback_poll_entries_path do |form|
+      = form.hidden_field :poll_id, :value => poll.id
+      
+      - poll.answers.each do |answer|
+        %li
+          = form.radio_button :poll_answer_id, answer.id, :class => "poll_entry"
+          = form.label "poll_answer_id_#{answer.id}", answer.title

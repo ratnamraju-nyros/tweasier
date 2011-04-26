@@ -1,0 +1,22 @@
+#sidebar
+  - if @account
+    #account_title
+      %p
+        You are currently viewing the Tweasier account for
+        %strong= @account.screen_name
+    = render :partial => "app/accounts/nav", :locals => { :account => @account }
+    
+  #sidebar_content
+    = yield :sidebar
+    = yield :tip
+
+    %h5 Help
+    %p
+      Did you know you can find answers to commonly asked questions on our
+      = link_to "FAQ", faq_path
+      page. If you still need help try
+      = mail_to Configuration.email.support, "contacting us directly", :encode => :hex
+      at our support email address.
+    
+    = render :partial => "feedback/poll_entries/form", :locals => { :poll => @poll } if @poll
+    = render :partial => "feedback/feedback_entries/form", :locals => { :feedback_entry => @feedback_entry } if @feedback_entry

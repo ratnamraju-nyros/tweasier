@@ -1,0 +1,8 @@
+#feedback_form
+  - form_for :feedback_entry, :url => feedback_feedback_entries_path, :html => { :id => "feedback_entry_form" } do |form|
+    %p
+      Please help us make
+      = Configuration.app.title
+      even better by telling us what we could improve:
+    = form.text_area :content
+    = image_submit_tag "/images/app/buttons/submit_feedback.png", :class => "submit"
